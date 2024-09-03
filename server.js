@@ -5,7 +5,7 @@ const cors = require("cors");
 const dbConnect = require("./app/config/db_connect");
 const errorHandler = require("./app/middleware/errorMiddlware");
 
-dbConnect();
+//dbConnect();
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -22,6 +22,8 @@ app.use("/jobs", express.static('./app/assets/jobs'));
 app.use("/api/users", require("./app/routes/user"));
 app.use("/users", express.static('./app/assets/users'));
 
+app.use("/users/images", express.static('./app/assets/users'));
+app.use("/jobs", express.static('./app/assets/jobs'));
 
 app.use(errorHandler);
 app.listen(port, () => console.log(`Server has started on ${port}`));

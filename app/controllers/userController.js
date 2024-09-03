@@ -136,7 +136,7 @@ const addToFavs = expressAsyncHandler(
             const job = await Job.findOne({ _id: req.body.job_id });
 
             if (!user) return res.status(422).json({ message: "User not found" });
-            if (user.user_role !== "Client") return res.status(422).json({ message: "Operation Not Allowed" });
+            if (user.user_role !== "Freelancer") return res.status(422).json({ message: "Operation Not Allowed" });
 
             if (user.favorites.includes(job.id)) return res.status(422).json({ message: "Job is already in your favorites" });
 
@@ -159,7 +159,7 @@ const removeFromFavs = expressAsyncHandler(
             const job = await Job.findOne({ _id: req.body.job_id });
 
             if (!user) return res.status(422).json({ message: "User Not Found" });
-            if (user?.user_role !== "Client") return res.status(422).json({ message: "Operation Denied" });
+            if (user?.user_role !== "Freelancer") return res.status(422).json({ message: "Operation Denied" });
             if (!job) return res.status(422).json({ message: "Job not found or might have been deleted" });
             if (!user.favorites.includes(job?.id)) return res.status(422).json({ message: "Job is not in your favorites" });
 
