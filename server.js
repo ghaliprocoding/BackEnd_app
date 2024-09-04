@@ -4,8 +4,7 @@ const cors = require("cors");
 
 const dbConnect = require("./app/config/db_connect");
 const errorHandler = require("./app/middleware/errorMiddlware");
-
-//dbConnect();
+dbConnect();
 
 const app = express();
 const port = process.env.PORT || 8000;
