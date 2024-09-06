@@ -12,3 +12,4 @@ export const NODE_ENV = getEnv("NODE_ENV", "development");
 export const PORT = getEnv("PORT", "8000");
 export const MONGO_LOCAL = getEnv("MONGO_LOCAL");
 export const MONGO_CLOUD = getEnv("MONGO_CLOUD");
+export const ORIGIN = getEnv("ORIGIN");

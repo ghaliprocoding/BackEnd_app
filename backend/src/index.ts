@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { NODE_ENV, PORT } from './constants/env';
+import { NODE_ENV, ORIGIN, PORT } from './constants/env';
 import { OK } from './constants/http';
 import connectToDatabase from './config/db';
 import errorHandler from './middleware/errorHandler';
@@ -11,7 +11,7 @@ import userRoutes from './routes/user.route';
 
 
 const app = express();
-const allowedOrigin = [''];
+const allowedOrigin = [ORIGIN];
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
